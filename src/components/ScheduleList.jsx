@@ -2,10 +2,10 @@ import React from "react";
 import ScheduleListCard from "./ScheduleListCard";
 import TopNav from "./TopNav";
 
-function ScheduleList() {
+function ScheduleList(props) {
   return (
     <div>
-      <TopNav />
+      <TopNav sched={props.sched} />
       <ScheduleListCard />
       <ScheduleListCard />
       <ScheduleListCard />

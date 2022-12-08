@@ -42,6 +42,8 @@ function App() {
 
   useEffect(() => {
     async function getSchedData() {
+      await new Promise((r) => setTimeout(r, 10000));
+
       // const res = await fetch(configData.SERVER_URL + "bands");
       const res = await fetch("http://localhost:8080/schedule");
 
@@ -51,17 +53,17 @@ function App() {
     getSchedData();
   }, []);
 
-  useEffect(() => {
-    console.log("jamie", bands.length, Object.keys(sched), { ...sched });
-    //itterate the bands or something
-    // sched.map((band) => {
-    //   if (band.some("midgard"))
-    //     return sched;
-    //   }
-    // });
-    //for each band look in schedule
-    //search for act equals name
-  }, [bands, sched]);
+  // useEffect(() => {
+  //   console.log("jamie", bands.length, Object.keys(sched), { ...sched });
+  //   //itterate the bands or something
+  //   // sched.map((band) => {
+  //   //   if (band.some("midgard"))
+  //   //     return sched;
+  //   //   }
+  //   // });
+  //   //for each band look in schedule
+  //   //search for act equals name
+  // }, [bands, sched]);
 
   return (
     <div className="App">

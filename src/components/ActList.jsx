@@ -5,7 +5,7 @@ import TopNav from "./TopNav";
 function ActList(props) {
   return (
     <div className="Actlist">
-      <TopNav />
+      <TopNav {...props} />
       {props.bands.map((band) => (
         <ActListCard key={band.name} data={band} />
       ))}
