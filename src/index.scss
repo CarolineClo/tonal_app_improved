@@ -1,0 +1,78 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  div {
+    border: 1px solid black;
+  }
+}
+
+.locationDrop {
+  text-align: left;
+  border: 1px solid black;
+  position: relative;
+  border-radius: 5px;
+  margin: 0.2rem 0;
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  .locationInput {
+    padding: 5px;
+    display: flex;
+    align-items: centre;
+    justify-content: space-between;
+    user-select: none;
+  }
+
+  .locationMenu {
+    position: absolute;
+    transform: translateY(4px);
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 150px;
+    background-color: white;
+  }
+
+  .locationItem {
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .locationItem:hover {
+    background-color: grey;
+  }
+
+  .locationItem.selected {
+    background-color: green;
+    color: white;
+  }
+}
+
+.topNav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.3rem;
+}
+
+.favSwitch {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  justify-self: center;
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.dayButton {
+  button {
+    width: 100%;
+  }
+}
