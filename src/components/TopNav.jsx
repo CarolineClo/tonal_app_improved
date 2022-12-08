@@ -2,29 +2,11 @@ import React from "react";
 import Daybutton from "./Daybutton";
 import LocationDrop from "./LocationDrop";
 import FavSwitch from "./FavSwitch";
-import { useEffect } from "react";
-import { useState } from "react";
 
 function TopNav(props) {
   const options = Object.keys(props.sched).map((key) => {
     return { value: key, label: key };
   });
-
-  // const options = [
-  //   { value: "mid", label: "Vid" },
-  //   { value: "val", label: "Val" },
-  //   { value: "other", label: "Oth" },
-  // ];
-
-  // const [options, setOptions] = useState([]);
-
-  // useEffect(() => {
-  //   setOptions(
-  //     Object.keys(props.sched).map((key) => {
-  //       return { value: key, label: key };
-  //     })
-  //   );
-  // }, [props.sched]);
 
   return (
     <div className="topNav">

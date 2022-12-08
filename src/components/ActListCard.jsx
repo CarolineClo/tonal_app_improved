@@ -5,7 +5,6 @@ function ActListCard(props) {
     <div>
       <h3>{props.data.name}</h3>
       <h4>time</h4>
-      <h4>time</h4>
       <h4>stage</h4>
     </div>
   );
