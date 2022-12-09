@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function Icon() {
   return (
@@ -8,7 +8,9 @@ function Icon() {
   );
 }
 
-function LocationDrop({ placeholder, options }) {
+function LocationDrop(props) {
+  const selectTent = props.selectTent;
+  let options = props.options;
   const [showMenu, setShowMenu] = useState(false);
   const [selectedValue, setSelectedValue] = useState(null);
 
@@ -29,8 +31,7 @@ function LocationDrop({ placeholder, options }) {
   const getDisplay = () => {
     if (selectedValue) {
       return selectedValue.label;
-    }
-    return placeholder;
+    } else return "please choose";
   };
 
   function onItemClick(option) {
@@ -44,6 +45,7 @@ function LocationDrop({ placeholder, options }) {
 
     return selectedValue.value === option.value;
   }
+  //console.log(selectedValue);
 
   return (
     <div className="locationDrop">
@@ -51,7 +53,14 @@ function LocationDrop({ placeholder, options }) {
         {showMenu && (
           <div className="locationMenu">
             {options.map((option) => (
-              <div onClick={() => onItemClick(option)} key={options.value} className={`locationItem ${isSelected(option) && "selected"}`}>
+              <div
+                onClick={() => {
+                  onItemClick(option);
+                  selectTent(option.value);
+                }}
+                key={options.value}
+                className={`locationItem ${isSelected(option) && "selected"}`}
+              >
                 {option.label}
               </div>
             ))}

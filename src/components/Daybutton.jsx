@@ -1,9 +1,10 @@
 import React from "react";
 
 function Daybutton(props) {
+  const selectDay = props.selectDay;
   return (
     <div className="dayButton">
-      <button>{props.day}</button>
+      <button onClick={() => selectDay(props.label)}>{props.day}</button>
     </div>
   );
 }

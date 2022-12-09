@@ -1,11 +1,13 @@
 import React from "react";
 
-function ScheduleListCard() {
+function ScheduleListCard(props) {
   return (
     <div>
-      <h3>Time</h3>
-      <h3>Location</h3>
-      <p>band name</p>
+      <p>
+        {props.slot.start} - {props.slot.end}
+      </p>
+      <h2>{props.slot.act}</h2>
+      <p>{props.slot.stage}</p>
     </div>
   );
 }
