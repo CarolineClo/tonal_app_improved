@@ -6,24 +6,39 @@ import { useState } from "react";
 function ScheduleList(props) {
   const sched = props.sched;
   const [day, setDay] = useState("mon");
-  const [tent, setTent] = useState(null);
+  const [tent, setTent] = useState("");
 
-  const dayArr = [];
+  let dayArr = [];
+  let filtered = [];
+
+  function getTentArr() {
+    if (tent) {
+      filtered = dayArr.filter((slot) => slot.stage === tent);
+    } else {
+      filtered = dayArr;
+    }
+  }
 
   function getDayArr() {
     Object.entries(sched).map((item) => {
       Object.entries(item[1]).map((weekDays) => {
-        //console.log(weekDays);
         if (weekDays[0] === day) {
           weekDays[1].forEach((el) => {
             el.stage = item[0];
+
             dayArr.push(el);
           });
         }
       });
     });
+    getTentArr();
   }
   getDayArr();
+
+  //ADD THE DAYS
+  // function getDay(){ = Object.entries(sched).map((tents) => {
+  //     //console.log(Object.keys(tents[1]));
+  //   });}
 
   function selectTent(option) {
     setTent(option);
@@ -31,27 +46,21 @@ function ScheduleList(props) {
 
   function selectDay(option) {
     setDay(option);
-    // console.log(tent);
   }
 
-  function getTentArray() {
-    Object.entries(dayArr).map((item) => {
-      if (item[1].stage === tent) {
-        // console.log("whoop!");
-      }
-    });
-  }
-  getTentArray();
-
-  // const slots = dayArr.map((slot) => {
-  //   return slot.start;
-  // });
-  // console.log(slots);
+  // function getTentArray() {
+  //   Object.entries(dayArr).map((item) => {
+  //     if (item[1].stage === tent) {
+  //       console.log("change!");
+  //     }
+  //   });
+  // }
+  //getTentArray();
 
   return (
     <div>
       <TopNav sched={sched} selectDay={selectDay} selectTent={selectTent} />
-      {dayArr.map((slot) => (
+      {filtered.map((slot) => (
         <ScheduleListCard key={slot.entry} slot={slot} />
       ))}
     </div>

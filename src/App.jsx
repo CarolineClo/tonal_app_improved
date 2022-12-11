@@ -52,12 +52,6 @@ function App() {
     getSchedData();
   }, []);
 
-  const stageArr = Object.entries(sched).map((tents) => {
-    //console.log(tents);
-    return tents;
-  });
-  //console.log(stageArr);
-
   return (
     <div className="App">
       <div>
@@ -67,7 +61,7 @@ function App() {
         <Route path="/" element={<Layout />} />
         <Route index element={<Home />} />
         <Route path="acts" element={<ActList sched={sched} bands={bands} />} />
-        <Route path="schedule" element={<ScheduleList sched={sched} bands={bands} stageArr={stageArr} />} />
+        <Route path="schedule" element={<ScheduleList sched={sched} bands={bands} />} />
         <Route path="footer" element={<Footer />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
