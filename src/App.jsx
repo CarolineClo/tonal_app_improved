@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
     async function getBandData() {
       // const res = await fetch(configData.SERVER_URL + "bands");
-      const res = await fetch("http://localhost:8080/bands");
+      const res = await fetch("https://tonal-fest.fly.dev/bands");
       const bandData = await res.json();
       setbands(bandData);
     }
@@ -44,7 +44,7 @@ function App() {
   useEffect(() => {
     async function getSchedData() {
       // const res = await fetch(configData.SERVER_URL + "bands");
-      const res = await fetch("http://localhost:8080/schedule");
+      const res = await fetch("https://tonal-fest.fly.dev/schedule");
 
       const schedData = await res.json();
       setsched(schedData);
@@ -55,6 +55,7 @@ function App() {
   return (
     <div className="app">
       <div className="lines">
+        <p>green lines cool cool fancy</p>
         <p>green lines cool cool fancy</p>
       </div>
       <Routes>
