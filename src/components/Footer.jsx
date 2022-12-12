@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div>
-      <div>
+    <div className="footer">
+      <div className="bottomNav">
         {" "}
         <Link to="acts">
           <button>Acts</button>
         </Link>
         <Link to="/">
-          <button>Home</button>
+          <button className="homeButton">H</button>
         </Link>
         <Link to="schedule">
           <button>Schedule</button>

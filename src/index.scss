@@ -1,14 +1,112 @@
+/* TYPE SCALE
+7.45 rem
+5.96rem
+4.76rem
+3.81rem
+3.05rem
+2.44rem
+1.95rem
+1.56rem
+1.25rem
+1rem
+0.8rem
+0.64rem
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+$font-headers: "Space Grotesk", sans-serif;
+$font-body: "Inter", sans-serif;
+$green-colour: #bce206;
+$black-colour: #060900;
+$white-colour: #f9faf7;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  background-color: $black-colour;
+  color: $white-colour;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-headers;
+  font-weight: 400;
+}
+
+p {
+  font-family: $font-body;
+}
+
+.app {
+  div.lines {
+    color: $green-colour;
+  }
+}
+
+button {
+  color: $white-colour;
+  background-color: $black-colour;
+  border-radius: 62px;
+  box-shadow: 0 0 12px 4px $green-colour;
+  border: none;
+  width: 120px;
+  padding: 0.64rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  //font-size: 1rem;
+}
+
+button:focus {
+  background-color: $white-colour;
+  color: $black-colour;
 }
 
 .home {
+  padding: 0 0.8rem;
+  background-color: $black-colour;
+  color: $white-colour;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  padding-bottom: 6.76rem;
+  h1 {
+    text-transform: uppercase;
+    font-size: 4.76rem;
+    line-height: 5.96rem;
+    margin-top: 0;
+    margin-bottom: 1.56rem;
+  }
+  h2 {
+    font-size: 2.44rem;
+    margin-bottom: 1.56rem;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  .infoBox {
+    padding: 1.25rem;
+    background-color: rgb(188, 226, 6, 10%);
+    cursor: pointer;
+  }
+  a {
+    color: $white-colour;
+    text-decoration: none;
+  }
+}
 
-  div {
-    border: 1px solid black;
+.footer {
+  padding: 1.95rem 0.8rem;
+  border-top: 1px solid $white-colour;
+  .bottomNav {
+    display: flex;
+    justify-content: space-between;
+  }
+  button.homeButton {
+    width: 35px;
   }
 }
 

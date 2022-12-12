@@ -53,8 +53,8 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <div>
+    <div className="app">
+      <div className="lines">
         <p>green lines cool cool fancy</p>
       </div>
       <Routes>

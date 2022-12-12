@@ -3,17 +3,23 @@ import { Link } from "react-router-dom";
 function Home(props) {
   return (
     <div className="home">
-      <h1>Welcome to Tonal Festival</h1>
+      <div className="homeHeading">
+        <h2>
+          Welcome <br />
+          To
+        </h2>
+        <h1>Tonal Festival</h1>
+      </div>
       <Link to="acts">
-        <div>
+        <div className="infoBox">
           {" "}
-          <h1>Acts</h1>
+          <h2>Acts</h2>
           <p>see all acts performing at this years Tonal Festival and find your favourites</p>
         </div>
       </Link>
       <Link to="schedule">
-        <div>
-          <h1>Schedule</h1>
+        <div className="infoBox">
+          <h2>Schedule</h2>
           <p>See a the shedule for a whole week of Tonal and create your personal schedule </p>
         </div>
       </Link>
