@@ -16,6 +16,7 @@ import { useEffect } from "react";
 function App() {
   const [bands, setbands] = useState([]);
   const [sched, setsched] = useState({});
+  const classNameFunc = ({ isActive }) => (isActive ? "active_link" : "not_active_link ");
 
   let allBands = [];
   let stages = [];
@@ -34,7 +35,7 @@ function App() {
   useEffect(() => {
     async function getBandData() {
       // const res = await fetch(configData.SERVER_URL + "bands");
-      const res = await fetch("https://tonal-fest.fly.dev/bands");
+      const res = await fetch("http://localhost:8080/bands");
       const bandData = await res.json();
       setbands(bandData);
     }
@@ -44,7 +45,7 @@ function App() {
   useEffect(() => {
     async function getSchedData() {
       // const res = await fetch(configData.SERVER_URL + "bands");
-      const res = await fetch("https://tonal-fest.fly.dev/schedule");
+      const res = await fetch("http://localhost:8080/schedule");
 
       const schedData = await res.json();
       setsched(schedData);
@@ -60,7 +61,7 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<Layout />} />
-        <Route index element={<Home />} />
+        <Route index element={<Home classNameFunc={classNameFunc} />} />
         <Route path="acts" element={<ActList sched={sched} bands={bands} />} />
         <Route path="schedule" element={<ScheduleList sched={sched} bands={bands} />} />
         <Route path="footer" element={<Footer />} />

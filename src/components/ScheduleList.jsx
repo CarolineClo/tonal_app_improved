@@ -11,6 +11,12 @@ function ScheduleList(props) {
   let dayArr = [];
   let filtered = [];
 
+  // function daySelected(){
+  //   if (day===day){
+  //     className={activeButton}
+  //   }
+  // }
+
   function getTentArr() {
     if (tent) {
       filtered = dayArr.filter((slot) => slot.stage === tent);
@@ -59,7 +65,7 @@ function ScheduleList(props) {
 
   return (
     <div>
-      <TopNav sched={sched} selectDay={selectDay} selectTent={selectTent} />
+      <TopNav sched={sched} selectDay={selectDay} selectTent={selectTent} setDay={day} />
       {filtered.map((slot) => (
         <ScheduleListCard key={slot.entry} slot={slot} />
       ))}

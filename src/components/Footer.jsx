@@ -1,20 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Footer() {
+  const classNameFunc = ({ isActive }) => (isActive ? "active_link" : "not_active_link");
   return (
     <div className="footer">
       <div className="bottomNav">
         {" "}
-        <Link to="acts">
-          <button>Acts</button>
-        </Link>
-        <Link to="/">
-          <button className="homeButton">H</button>
-        </Link>
-        <Link to="schedule">
-          <button>Schedule</button>
-        </Link>
+        <NavLink className={classNameFunc} to="acts">
+          Acts
+        </NavLink>
+        <NavLink className={classNameFunc} to="/">
+          H
+        </NavLink>
+        <NavLink className={classNameFunc} to="schedule">
+          Schedule
+        </NavLink>
         {/* <MyButton changeList={props.changeList} name={"Schedule"} button={"schedule"}></MyButton> */}
       </div>
     </div>

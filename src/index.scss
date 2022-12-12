@@ -42,28 +42,32 @@ p {
   font-family: $font-body;
 }
 
+button {
+  background-color: $black-colour;
+  color: $white-colour;
+  border-radius: 62px;
+  box-shadow: 0 0 12px 4px $green-colour;
+  border: none;
+  max-inline-size: 120px;
+  padding: 0.64rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  font-family: $font-body;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button.activeButton {
+  background-color: $white-colour;
+  color: $black-colour;
+}
+
 .app {
   div.lines {
     color: $green-colour;
   }
-}
-
-button {
-  color: $white-colour;
-  background-color: $black-colour;
-  border-radius: 62px;
-  box-shadow: 0 0 12px 4px $green-colour;
-  border: none;
-  width: 120px;
-  padding: 0.64rem;
-  text-transform: uppercase;
-  font-weight: 300;
-  //font-size: 1rem;
-}
-
-button:focus {
-  background-color: $white-colour;
-  color: $black-colour;
 }
 
 .home {
@@ -104,9 +108,38 @@ button:focus {
   .bottomNav {
     display: flex;
     justify-content: space-between;
-  }
-  button.homeButton {
-    width: 35px;
+
+    .not_active_link {
+      color: $white-colour;
+      background-color: $black-colour;
+      border-radius: 62px;
+      box-shadow: 0 0 12px 4px $green-colour;
+      border: none;
+      width: 120px;
+      padding: 0.64rem;
+      text-transform: uppercase;
+      font-weight: 300;
+      display: flex;
+      justify-content: center;
+      font-family: $font-body;
+      text-decoration: none;
+    }
+
+    .active_link {
+      background-color: $white-colour;
+      color: $black-colour;
+      border-radius: 62px;
+      box-shadow: 0 0 12px 4px $green-colour;
+      border: none;
+      width: 120px;
+      padding: 0.64rem;
+      text-transform: uppercase;
+      font-weight: 300;
+      display: flex;
+      justify-content: center;
+      font-family: $font-body;
+      text-decoration: none;
+    }
   }
 }
 
