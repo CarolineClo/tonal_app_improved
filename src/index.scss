@@ -55,8 +55,10 @@ button {
   display: flex;
   justify-content: center;
   font-family: $font-body;
+  font-size: 0.8rem;
   text-decoration: none;
   cursor: pointer;
+  width: 90px;
 }
 
 button.activeButton {
@@ -115,7 +117,7 @@ button.activeButton {
       border-radius: 62px;
       box-shadow: 0 0 12px 4px $green-colour;
       border: none;
-      width: 120px;
+      width: 80px;
       padding: 0.64rem;
       text-transform: uppercase;
       font-weight: 300;
@@ -131,7 +133,7 @@ button.activeButton {
       border-radius: 62px;
       box-shadow: 0 0 12px 4px $green-colour;
       border: none;
-      width: 120px;
+      width: 80px;
       padding: 0.64rem;
       text-transform: uppercase;
       font-weight: 300;
@@ -140,70 +142,98 @@ button.activeButton {
       font-family: $font-body;
       text-decoration: none;
     }
-  }
-}
-
-.locationDrop {
-  text-align: left;
-  border: 1px solid black;
-  position: relative;
-  border-radius: 5px;
-  margin: 0.2rem 0;
-  grid-column-start: 1;
-  grid-column-end: 3;
-
-  .locationInput {
-    padding: 5px;
-    display: flex;
-    align-items: centre;
-    justify-content: space-between;
-    user-select: none;
-  }
-
-  .locationMenu {
-    position: absolute;
-    transform: translateY(4px);
-    width: 100%;
-    border: 1px solid black;
-    border-radius: 5px;
-    overflow: auto;
-    max-height: 150px;
-    background-color: white;
-  }
-
-  .locationItem {
-    padding: 5px;
-    cursor: pointer;
-  }
-
-  .locationItem:hover {
-    background-color: grey;
-  }
-
-  .locationItem.selected {
-    background-color: green;
-    color: white;
+    .active_link.homeButton {
+      width: 40px;
+    }
   }
 }
 
 .topNav {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.3rem;
-}
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 
-.favSwitch {
-  grid-column-start: 3;
-  grid-column-end: 5;
-  justify-self: center;
-  label {
-    display: flex;
-    flex-direction: column;
+  .dayNav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.3rem;
+
+    .dayButton {
+      button {
+        width: 100%;
+      }
+    }
+  }
+  .optionsNav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .locationDrop {
+      background-color: rgb(188, 226, 6, 10%);
+      text-align: left;
+      border: 1px solid $white-colour;
+      position: relative;
+      border-radius: 5px;
+      margin: 0.2rem 0;
+      font-family: $font-body;
+      text-transform: uppercase;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      .locationInput {
+        padding: 5px;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        user-select: none;
+      }
+
+      .locationMenu {
+        position: absolute;
+        transform: translateY(4px);
+        width: 100%;
+        border: 1px solid $white-colour;
+        border-radius: 5px;
+        overflow: auto;
+        max-height: 150px;
+        background-color: $black-colour;
+      }
+
+      .locationItem {
+        padding: 5px;
+        cursor: pointer;
+      }
+
+      .locationItem:hover {
+        background-color: grey;
+      }
+
+      .locationItem.selected {
+        background-color: green;
+        color: white;
+      }
+    }
+
+    .favSwitch {
+      grid-column-start: 3;
+      grid-column-end: 5;
+      justify-self: center;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        font-family: $font-body;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 }
 
-.dayButton {
-  button {
-    width: 100%;
-  }
+.scheduleList {
+  padding: 0 0.8rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

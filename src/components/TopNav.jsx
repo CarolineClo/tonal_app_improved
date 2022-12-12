@@ -12,15 +12,19 @@ function TopNav(props) {
 
   return (
     <div className="topNav">
-      <Daybutton day="Mon" label="mon" selectDay={selectDay} setDay={props.setDay} />
-      <Daybutton day="Tue" label="tue" selectDay={selectDay} setDay={props.setDay} />
-      <Daybutton day="Wed" label="wed" selectDay={selectDay} setDay={props.setDay} />
-      <Daybutton day="Thu" label="thu" selectDay={selectDay} setDay={props.setDay} />
-      <Daybutton day="Fri" label="fri" selectDay={selectDay} setDay={props.setDay} />
-      <Daybutton day="Sat" label="sat" selectDay={selectDay} setDay={props.setDay} />
-      <Daybutton day="Sun" label="sun" selectDay={selectDay} setDay={props.setDay} />
-      <LocationDrop options={options} selectTent={selectTent} setDay={props.setDay} />
-      <FavSwitch />
+      <div className="dayNav">
+        <Daybutton day="Mon" label="mon" selectDay={selectDay} setDay={props.setDay} />
+        <Daybutton day="Tue" label="tue" selectDay={selectDay} setDay={props.setDay} />
+        <Daybutton day="Wed" label="wed" selectDay={selectDay} setDay={props.setDay} />
+        <Daybutton day="Thu" label="thu" selectDay={selectDay} setDay={props.setDay} />
+        <Daybutton day="Fri" label="fri" selectDay={selectDay} setDay={props.setDay} />
+        <Daybutton day="Sat" label="sat" selectDay={selectDay} setDay={props.setDay} />
+        <Daybutton day="Sun" label="sun" selectDay={selectDay} setDay={props.setDay} />
+      </div>
+      <div className="optionsNav">
+        <LocationDrop options={options} selectTent={selectTent} setDay={props.setDay} />
+        <FavSwitch />
+      </div>
     </div>
   );
 }
