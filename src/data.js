@@ -15,11 +15,3 @@ async function loadSchedule() {
   const data = await resp.json();
   scheduleData = data;
 }
-
-async function prepareObjects(){
-    allActs= jsonData.map(prepareAct);
-    allActs.array.forEach(element => {
-        if ()
-    });
-
-}

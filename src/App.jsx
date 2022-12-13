@@ -18,20 +18,6 @@ function App() {
   const [sched, setsched] = useState({});
   const classNameFunc = ({ isActive }) => (isActive ? "active_link" : "not_active_link ");
 
-  let allBands = [];
-  let stages = [];
-  let favourites = [];
-
-  const bandObj = {
-    name: "",
-    bio: "",
-    members: "",
-    stage: "",
-    start: "",
-    end: "",
-    logo: "",
-  };
-
   useEffect(() => {
     async function getBandData() {
       // const res = await fetch(configData.SERVER_URL + "bands");
@@ -73,54 +59,3 @@ function App() {
 }
 
 export default App;
-
-// return (
-//   <div className="App">
-//     <Header />
-//     {component}
-//     <Footer changeListS={changeListS} changeListH={changeListH} changeListA={changeListA} />
-//   </div>
-// );
-
-// useEffect(() => {
-//   console.log("jamie", bands.length, Object.keys(sched), { ...sched });
-//   //itterate the bands or something
-//   // sched.map((band) => {
-//   //   if (band.some("midgard"))
-//   //     return sched;
-//   //   }
-//   // });
-//   //for each band look in schedule
-//   //search for act equals name
-// }, [bands, sched]);
-
-// const [list, setlist] = useState("Home");
-// let component = <Home />;
-// if (list === "Schedule") {
-//   component = <ScheduleList bands={bands} sched={sched} />;
-// } else if (list === "Artist") {
-//   component = <ActList bands={bands} sched={sched} />;
-// } else if (list === "Home") {
-//   component = <Home bands={bands} sched={sched} changeListS={changeListS} changeListA={changeListA} />;
-// }
-// function changeListS() {
-//   setlist("Schedule");
-// }
-// function changeListH() {
-//   setlist("Home");
-// }
-// function changeListA() {
-//   setlist("Artist");
-// }
-
-// const newArr = [];
-//   const tentscheds = Object.entries(sched).map((tents) => {
-//     console.log(tents);
-//     Object.entries(tents[1]).map((day) => {
-//       day[1].forEach((el) => {
-//         return newArr.push(el);
-//       });
-//     });
-//   });
-
-//   console.log(tentscheds);

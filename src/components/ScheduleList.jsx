@@ -10,13 +10,6 @@ function ScheduleList(props) {
 
   let dayArr = [];
   let filtered = [];
-  let favArr = [];
-
-  // function daySelected(){
-  //   if (day===day){
-  //     className={activeButton}
-  //   }
-  // }
 
   function getTentArr() {
     if (tent) {
@@ -42,11 +35,6 @@ function ScheduleList(props) {
   }
   getDayArr();
 
-  //ADD THE DAYS
-  // function getDay(){ = Object.entries(sched).map((tents) => {
-  //     //console.log(Object.keys(tents[1]));
-  //   });}
-
   function selectTent(option) {
     setTent(option);
   }
@@ -59,7 +47,7 @@ function ScheduleList(props) {
     <div className="scheduleList">
       <TopNav sched={sched} selectDay={selectDay} selectTent={selectTent} setDay={day} />
       {filtered.map((slot) => (
-        <ScheduleListCard key={slot.entry} slot={slot} />
+        <ScheduleListCard key={slot.entry} slot={slot} sched={sched} getDayArr={getDayArr} />
       ))}
     </div>
   );

@@ -1,9 +1,29 @@
-import React from "react";
-import { useState } from "react";
+import Favheart from "./Favheart";
 import Notfav from "./Notfav";
+import { useState } from "react";
+
 function ScheduleListCard(props) {
-  const [Fav, setFav] = useState(false);
-  let component = <Notfav />;
+  const [fav, setFav] = useState(false);
+
+  // let favArr = [];
+  // function getFavArr() {
+  //   Object.value(props.slot).map((item) => {
+  //     console.log(item);
+  //   });
+  // }
+  // console.table(props.slot);
+  // getFavArr();
+
+  function isFav() {
+    setFav(!fav);
+  }
+
+  let component = <Notfav isFav={isFav} />;
+  if (fav == true) {
+    component = <Favheart isFav={isFav} />;
+  }
+  props.getDayArr(fav);
+
   return (
     <div>
       <p>
