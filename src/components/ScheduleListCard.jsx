@@ -3,26 +3,16 @@ import Notfav from "./Notfav";
 import { useState } from "react";
 
 function ScheduleListCard(props) {
-  const [fav, setFav] = useState(false);
+  //const [fav, setFav] = useState(false);
 
-  // let favArr = [];
-  // function getFavArr() {
-  //   Object.value(props.slot).map((item) => {
-  //     console.log(item);
-  //   });
+  // function isFav() {
+  //   setFav(!fav);
   // }
-  // console.table(props.slot);
-  // getFavArr();
 
-  function isFav() {
-    setFav(!fav);
+  let component = <Notfav toggleFav={props.toggleFav} index={props.slot.index} />;
+  if (props.slot.fav == true) {
+    component = <Favheart toggleFav={props.toggleFav} index={props.slot.index} />;
   }
-
-  let component = <Notfav isFav={isFav} />;
-  if (fav == true) {
-    component = <Favheart isFav={isFav} />;
-  }
-  props.getDayArr(fav);
 
   return (
     <div>
@@ -31,6 +21,7 @@ function ScheduleListCard(props) {
       </p>
       <h2>{props.slot.act}</h2>
       <p>{props.slot.stage}</p>
+      <p>{props.slot.day}</p>
       {component}
     </div>
   );

@@ -31,7 +31,7 @@ function LocationDrop(props) {
   const getDisplay = () => {
     if (selectedValue) {
       return selectedValue.label;
-    } else return "please choose";
+    } else return "All";
   };
 
   function onItemClick(option) {
@@ -48,7 +48,7 @@ function LocationDrop(props) {
   //console.log(selectedValue);
 
   return (
-    <div className="locationDrop">
+    <div className={props.hidden ? "locationDrop.hide" : "locationDrop"}>
       <div onClick={handleInputClick} className="locationInput">
         {showMenu && (
           <div className="locationMenu">
@@ -67,8 +67,8 @@ function LocationDrop(props) {
           </div>
         )}
 
-        <div className="locationSelectedValue">{getDisplay()}</div>
-        <div className="locationTools">
+        <div className={props.hidden ? "hide" : ""}>{getDisplay()}</div>
+        <div className={props.hidden ? "hide" : ""}>
           <div className="locationTool">
             <Icon />
           </div>

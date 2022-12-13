@@ -2,10 +2,12 @@ import React from "react";
 import Switch from "react-switch";
 import { useState } from "react";
 
-function FavSwitch() {
+function FavSwitch(props) {
   const [checked, setChecked] = useState(false);
-  const handleChange = (nextChecked) => {
+  let handleChange = (nextChecked) => {
     setChecked(nextChecked);
+    props.toggleFavsList(checked);
+    props.hideLocation(checked);
   };
 
   return (

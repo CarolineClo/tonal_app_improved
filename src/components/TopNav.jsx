@@ -22,8 +22,8 @@ function TopNav(props) {
         <Daybutton day="Sun" label="sun" selectDay={selectDay} setDay={props.setDay} />
       </div>
       <div className="optionsNav">
-        <LocationDrop options={options} selectTent={selectTent} setDay={props.setDay} />
-        <FavSwitch />
+        <LocationDrop options={options} selectTent={selectTent} setDay={props.setDay} hidden={props.hidden} />
+        <FavSwitch toggleFavsList={props.toggleFavsList} hideLocation={props.hideLocation} />
       </div>
     </div>
   );

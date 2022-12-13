@@ -4,36 +4,25 @@ import TopNav from "./TopNav";
 import { useState } from "react";
 
 function ScheduleList(props) {
-  const sched = props.sched;
+  const sched = props.dayArr;
   const [day, setDay] = useState("mon");
   const [tent, setTent] = useState("");
+  const [isFavList, setIsFavList] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
-  let dayArr = [];
   let filtered = [];
 
   function getTentArr() {
-    if (tent) {
-      filtered = dayArr.filter((slot) => slot.stage === tent);
+    if (isFavList == true) {
+      filtered = sched.filter((slot) => slot.fav == true);
+    } else if (tent) {
+      filtered = sched.filter((slot) => slot.stage === tent);
     } else {
-      filtered = dayArr;
+      filtered = sched;
     }
+    filtered = filtered.filter((slot) => slot.day === day);
   }
-
-  function getDayArr() {
-    Object.entries(sched).map((item) => {
-      Object.entries(item[1]).map((weekDays) => {
-        if (weekDays[0] === day) {
-          weekDays[1].forEach((el) => {
-            el.stage = item[0];
-
-            dayArr.push(el);
-          });
-        }
-      });
-    });
-    getTentArr();
-  }
-  getDayArr();
+  getTentArr();
 
   function selectTent(option) {
     setTent(option);
@@ -43,11 +32,19 @@ function ScheduleList(props) {
     setDay(option);
   }
 
+  function toggleFavsList(checked) {
+    setIsFavList(!checked);
+  }
+
+  function hideLocation(checked) {
+    setHidden(!checked);
+  }
+
   return (
     <div className="scheduleList">
-      <TopNav sched={sched} selectDay={selectDay} selectTent={selectTent} setDay={day} />
+      <TopNav sched={props.sched} selectDay={selectDay} selectTent={selectTent} setDay={day} toggleFavsList={toggleFavsList} hidden={hidden} hideLocation={hideLocation} />
       {filtered.map((slot) => (
-        <ScheduleListCard key={slot.entry} slot={slot} sched={sched} getDayArr={getDayArr} />
+        <ScheduleListCard key={slot.entry} slot={slot} sched={sched} toggleFav={props.toggleFav} />
       ))}
     </div>
   );

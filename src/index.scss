@@ -180,6 +180,7 @@ button.activeButton {
       width: 100%;
       display: flex;
       align-items: center;
+
       .locationInput {
         padding: 5px;
         display: flex;
@@ -236,4 +237,8 @@ button.activeButton {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.hide {
+  display: none;
 }
