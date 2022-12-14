@@ -11,7 +11,7 @@ function Footer() {
           Acts
         </NavLink>
         <NavLink className={classNameFunc} to="/">
-          H
+          Home
         </NavLink>
         <NavLink className={classNameFunc} to="schedule">
           Schedule
