@@ -38,6 +38,7 @@ function App() {
       getDayArr(schedData);
     }
     getSchedData();
+
     function getDayArr(schedData) {
       const nextArr = [];
       let i = 0;
@@ -58,6 +59,41 @@ function App() {
       setDayArr(nextArr);
     }
   }, []);
+
+  useEffect(() => {
+    const anArr = [];
+    function getAllActs() {
+      bands.map((band) => {
+        dayArr.map((slot) => {
+          if (band.name === slot.act) {
+            console.log(band.name);
+            // bands.forEach((el) => {
+            //   el.start = slot.start;
+            //   anArr.push(el);
+            // });
+          }
+        });
+      });
+    }
+    getAllActs();
+  }, [bands, sched]);
+  console.log(bands);
+
+  // function makeacts() {
+  //   const allActs = [];
+  //   bands.map((band) => ({
+  //     name: band.name,
+  //     members: [band.members],
+  //     logo: band.logo,
+  //     start: dayArr.map((slot) => {
+  //       if (slot.act === band.name) {
+  //         return slot.start;
+  //       }
+  //       allActs.push(band)
+  //     }),
+  //   }));
+  // }
+  //console.log(allActs);
 
   function toggleFav(index) {
     const copy = [...dayArr];
@@ -80,7 +116,6 @@ function App() {
         <Route path="footer" element={<Footer />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
-      <Footer />
     </div>
   );
 }
