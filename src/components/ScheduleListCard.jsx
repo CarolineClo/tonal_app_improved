@@ -1,6 +1,7 @@
 import Favheart from "./Favheart";
 import Notfav from "./Notfav";
 import { useState } from "react";
+import BandDetails from "./BandDetails";
 
 function ScheduleListCard(props) {
   //const [fav, setFav] = useState(false);
@@ -22,6 +23,8 @@ function ScheduleListCard(props) {
       <h2>{props.slot.act}</h2>
       <p>{props.slot.stage}</p>
       <p>{props.slot.day}</p>
+      {props.band && <p>{props.band.bio}</p>}
+
       {component}
     </div>
   );

@@ -15,6 +15,11 @@ function LocationDrop(props) {
   const [selectedValue, setSelectedValue] = useState(null);
 
   useEffect(() => {
+    //setSelectedValue(options[0]);
+    selectLocation(options[0]);
+  }, [options]);
+
+  useEffect(() => {
     const handler = () => setShowMenu(false);
 
     window.addEventListener("click", handler);
@@ -28,14 +33,9 @@ function LocationDrop(props) {
     setShowMenu(!showMenu);
   };
 
-  const getDisplay = () => {
-    if (selectedValue) {
-      return selectedValue.label;
-    } else return "All";
-  };
-
-  function onItemClick(option) {
+  function selectLocation(option) {
     setSelectedValue(option);
+    selectTent(option);
   }
 
   function isSelected(option) {
@@ -43,7 +43,7 @@ function LocationDrop(props) {
       return false;
     }
 
-    return selectedValue.value === option.value;
+    return selectedValue === option;
   }
   //console.log(selectedValue);
 
@@ -55,19 +55,18 @@ function LocationDrop(props) {
             {options.map((option) => (
               <div
                 onClick={() => {
-                  onItemClick(option);
-                  selectTent(option.value);
+                  selectLocation(option);
                 }}
-                key={options.value}
+                key={option}
                 className={`locationItem ${isSelected(option) && "selected"}`}
               >
-                {option.label}
+                {option}
               </div>
             ))}
           </div>
         )}
 
-        <div className={props.hidden ? "hide" : ""}>{getDisplay()}</div>
+        <div className={props.hidden ? "hide" : ""}>{selectedValue}</div>
         <div className={props.hidden ? "hide" : ""}>
           <div className="locationTool">
             <Icon />

@@ -3,12 +3,13 @@ import Daybutton from "./Daybutton";
 import LocationDrop from "./LocationDrop";
 import FavSwitch from "./FavSwitch";
 
-function TopNav(props) {
+function ScheduleFilters(props) {
   const selectDay = props.selectDay;
   const selectTent = props.selectTent;
-  const options = Object.keys(props.sched).map((key) => {
-    return { value: key, label: key };
-  });
+  const options = props.locations;
+  //Object.keys(props.sched).map((key) => {
+  //   return { value: key, label: key };
+  // });
 
   return (
     <div className="topNav">
@@ -29,4 +30,4 @@ function TopNav(props) {
   );
 }
 
-export default TopNav;
+export default ScheduleFilters;
