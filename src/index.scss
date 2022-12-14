@@ -261,6 +261,18 @@ button.activeButton {
   gap: 2rem;
 }
 
+.actList {
+  h1 {
+    text-transform: uppercase;
+  }
+  .listOfActs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 13rem;
+  }
+}
+
 .hide {
   display: none;
 }
