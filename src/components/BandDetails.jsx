@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Footer from "./Footer";
+
+const url = "http://localhost:8080/";
 
 function BandDetails(props) {
   const { id } = useParams();
@@ -21,7 +22,7 @@ function BandDetails(props) {
   if (bandImage.includes("https")) {
     bandLogo = bandImage;
   } else {
-    bandLogo = "";
+    bandLogo = url + "logos/" + bandImage;
   }
   console.log(id);
   console.log(thisBand);

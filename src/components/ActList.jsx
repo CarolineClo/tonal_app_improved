@@ -30,7 +30,7 @@ function ActList(props) {
                   return (
                     <div>
                       <Link to={`/acts/${band.id}`}>
-                        <ActListCard data={band} slot={slots[band.name]} />{" "}
+                        <ActListCard key={band.id} data={band} slot={slots[band.name]} />{" "}
                       </Link>
                     </div>
                   );
