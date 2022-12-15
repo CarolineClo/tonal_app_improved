@@ -27,6 +27,11 @@ function App() {
       const res = await fetch("http://localhost:8080/bands");
       const bandData = await res.json();
       setbands(bandData);
+      let i = 1;
+      const bandAndID = bandData.map((band) => {
+        Object.assign(band, { id: i++ });
+      });
+      //setbands(bandAndID);
       const entries = bandData.map((band) => {
         return [band.name, band];
       });
@@ -92,7 +97,7 @@ function App() {
         <Route path="/schedule" element={<ScheduleList dayArr={dayArr} toggleFav={toggleFav} locations={locations} bands={bandsByName} />} />
         <Route path="/footer" element={<Footer />} />
         <Route path="*" element={<NoPage />} />
-        <Route path="/acts/:name/*" element={<BandDetails />} />
+        <Route path="/acts/:id/*" element={<BandDetails bands={bands} slots={dayArr} />} />
       </Routes>
       <Footer />
     </div>

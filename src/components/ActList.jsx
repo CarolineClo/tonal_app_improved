@@ -16,7 +16,7 @@ function ActList(props) {
   });
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-
+  console.log(bands);
   return (
     <div className="actList">
       <h1>This years Acts</h1>
@@ -29,8 +29,8 @@ function ActList(props) {
                 if (band.name.charAt(0) === letter)
                   return (
                     <div>
-                      <Link to={`/acts/${band.name}`} key={band.name}>
-                        <ActListCard key={band.name} data={band} slot={slots[band.name]} />{" "}
+                      <Link to={`/acts/${band.id}`}>
+                        <ActListCard data={band} slot={slots[band.name]} />{" "}
                       </Link>
                     </div>
                   );

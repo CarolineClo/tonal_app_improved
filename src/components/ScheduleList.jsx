@@ -44,6 +44,7 @@ function ScheduleList(props) {
   return (
     <div className="scheduleList">
       <ScheduleFilters locations={props.locations} selectDay={selectDay} selectTent={selectTent} setDay={day} toggleFavsList={toggleFavsList} hidden={hidden} hideLocation={hideLocation} />
+
       {filtered.map((slot, i) => {
         // console.log(slot.act, bands[slot.act]);
         const band = bands[slot.act];
