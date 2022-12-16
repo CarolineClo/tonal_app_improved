@@ -31,7 +31,6 @@ function App() {
       const bandAndID = bandData.map((band) => {
         Object.assign(band, { id: i++ });
       });
-      //setbands(bandAndID);
       const entries = bandData.map((band) => {
         return [band.name, band];
       });

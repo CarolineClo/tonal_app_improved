@@ -16,29 +16,28 @@ function ActList(props) {
   });
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-  console.log(bands);
+
   return (
     <div className="actList">
-      <h1>This years Acts</h1>
-      <div className="listOfActs">
-        {alphabet.map((letter) => {
-          return (
-            <div>
-              <h1>{letter}</h1>
-              {bands.map((band) => {
-                if (band.name.charAt(0) === letter)
-                  return (
-                    <div>
-                      <Link to={`/acts/${band.id}`}>
-                        <ActListCard key={band.id} data={band} slot={slots[band.name]} />{" "}
-                      </Link>
-                    </div>
-                  );
-              })}
-            </div>
-          );
-        })}
-      </div>
+      <h1> Acts</h1>
+
+      {alphabet.map((letter) => {
+        return (
+          <div className="listOfActs">
+            <h3 className="letter">{letter}</h3>
+            {bands.map((band) => {
+              if (band.name.charAt(0) === letter)
+                return (
+                  <div>
+                    <Link to={`/acts/${band.id}`} key={band.id}>
+                      <ActListCard data={band} slot={slots[band.name]} key={band.id} />
+                    </Link>
+                  </div>
+                );
+            })}
+          </div>
+        );
+      })}
     </div>
   );
 }

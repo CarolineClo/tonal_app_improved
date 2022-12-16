@@ -1,7 +1,5 @@
 import Favheart from "./Favheart";
 import Notfav from "./Notfav";
-import { useState } from "react";
-import BandDetails from "./BandDetails";
 
 function ScheduleListCard(props) {
   //const [fav, setFav] = useState(false);
