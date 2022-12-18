@@ -1,13 +1,7 @@
 import Favheart from "./Favheart";
 import Notfav from "./Notfav";
-
+const url = "http://localhost:8080/";
 function ScheduleListCard(props) {
-  //const [fav, setFav] = useState(false);
-
-  // function isFav() {
-  //   setFav(!fav);
-  // }
-
   let component = <Notfav toggleFav={props.toggleFav} index={props.slot.index} />;
   if (props.slot.fav == true) {
     component = <Favheart toggleFav={props.toggleFav} index={props.slot.index} />;

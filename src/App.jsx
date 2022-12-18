@@ -2,7 +2,6 @@ import Footer from "./components/Footer";
 import ActList from "./components/ActList";
 import ScheduleList from "./components/ScheduleList";
 import Home from "./components/Home";
-import Layout from "./components/Layout";
 import NoPage from "./components/NoPage";
 import BandDetails from "./components/BandDetails";
 
@@ -67,7 +66,6 @@ function App() {
           });
         });
       });
-
       setDayArr(nextArr);
       const entries = nextArr.map((slot) => {
         return [slot.act, slot];
@@ -96,7 +94,7 @@ function App() {
         <Route path="/schedule" element={<ScheduleList dayArr={dayArr} toggleFav={toggleFav} locations={locations} bands={bandsByName} />} />
         <Route path="/footer" element={<Footer />} />
         <Route path="*" element={<NoPage />} />
-        <Route path="/acts/:id/*" element={<BandDetails bands={bands} slots={dayArr} />} />
+        <Route path="/acts/:id/*" element={<BandDetails bands={bands} slots={slotsByName} toggleFav={toggleFav} />} />
       </Routes>
       <Footer />
     </div>

@@ -13,7 +13,7 @@ function FavSwitch(props) {
   return (
     <div className="favSwitch">
       <label>
-        <span>Favourites</span>
+        <span>My Schedule</span>
         <Switch onChange={handleChange} checked={checked} className="react-switch" />
       </label>
       {/* <p>
