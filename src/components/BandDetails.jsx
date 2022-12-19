@@ -14,7 +14,17 @@ function BandDetails(props) {
       return band;
     }
   });
+
+  if (thisBand === undefined) {
+    return <div>...</div>;
+  }
+
   const slot = slots[thisBand.name];
+
+  if (slot === undefined) {
+    return <div>...</div>;
+  }
+
   const bandMembers = thisBand.members.join(", ");
   let bandImage = thisBand.logo;
   let bandLogo;
