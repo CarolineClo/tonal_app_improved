@@ -38,7 +38,7 @@ function BandDetails(props) {
   if (slot.fav == true) {
     component = <Favheart toggleFav={props.toggleFav} index={slot.index} />;
   }
-
+  console.log(thisBand.logoCredits);
   return (
     <div className="bandDetails">
       <div className="imageCircle">
@@ -61,6 +61,11 @@ function BandDetails(props) {
         <p>
           <strong>Band members:</strong> {bandMembers}
         </p>
+        {thisBand && (
+          <p>
+            <strong>Image credit:</strong> {thisBand.logoCredits}
+          </p>
+        )}
       </div>
     </div>
   );
