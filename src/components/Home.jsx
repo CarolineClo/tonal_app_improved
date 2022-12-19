@@ -15,13 +15,13 @@ function Home(props) {
           <div className="infoBox">
             {" "}
             <h2>Acts</h2>
-            <p>see all acts performing at this years Tonal Festival and find your favourites</p>
+            <p>See all acts performing at this years Tonal Festival and find your favourites</p>
           </div>
         </Link>
         <Link to="schedule">
           <div className="infoBox">
             <h2>Schedule</h2>
-            <p>See a the shedule for a whole week of Tonal and create your personal schedule </p>
+            <p>See the shedule for a whole week of Tonal. Click on the calendar to add an act to your personal schedule. </p>
           </div>
         </Link>
       </div>

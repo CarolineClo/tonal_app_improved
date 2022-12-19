@@ -1,7 +1,7 @@
 import Favheart from "./Favheart";
 import Notfav from "./Notfav";
 
-const url = "http://localhost:8080/";
+const url = "https://tonal-fest.fly.dev/";
 
 function ScheduleListCard(props) {
   let component = <Notfav toggleFav={props.toggleFav} index={props.slot.index} />;
@@ -16,7 +16,6 @@ function ScheduleListCard(props) {
   } else {
     bandLogo = url + "logos/" + bandImage;
   }
-  console.log(bandLogo);
 
   return (
     <div className="scheduleListCard">

@@ -4,14 +4,11 @@ import ScheduleList from "./components/ScheduleList";
 import Home from "./components/Home";
 import NoPage from "./components/NoPage";
 import BandDetails from "./components/BandDetails";
-
 import * as React from "react";
 import { Routes, Route } from "react-router-dom";
-//import configData from "/config.json";
-
 import { useState } from "react";
 import { useEffect } from "react";
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
+const url = "https://tonal-fest.fly.dev/";
 
 function App() {
   const [bands, setbands] = useState([]);
@@ -24,7 +21,7 @@ function App() {
   useEffect(() => {
     async function getBandData() {
       // const res = await fetch(configData.SERVER_URL + "bands");
-      const res = await fetch("http://localhost:8080/bands");
+      const res = await fetch(url + "bands");
       const bandData = await res.json();
       setbands(bandData);
       let i = 1;
@@ -43,7 +40,7 @@ function App() {
   useEffect(() => {
     async function getSchedData() {
       // const res = await fetch(configData.SERVER_URL + "bands");
-      const res = await fetch("http://localhost:8080/schedule");
+      const res = await fetch(url + "schedule");
 
       const schedData = await res.json();
 
@@ -84,9 +81,42 @@ function App() {
 
   return (
     <div className="app">
-      <div className="lines">
-        <p>green lines cool cool fancy</p>
-        <p>green lines cool cool fancy</p>
+      <div className="main-line-container">
+        <div className="line-container">
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+        </div>
+        <div className="line-container">
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+        </div>
+        <div className="line-container">
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+        </div>
+        <div className="line-container">
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+        </div>
+        <div className="line-container">
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+        </div>
       </div>
       <Routes>
         {/* <Route path="/" element={<Layout />} /> */}
