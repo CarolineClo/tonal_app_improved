@@ -32,7 +32,7 @@ function BandDetails(props) {
   return (
     <div className="bandDetails">
       <div className="imageCircle">
-        <img src={bandLogo} alt="" />
+        <img src={bandLogo} alt="a picture of the featured band" />
       </div>
       <div className="bandInfo">
         <h2 className="name">{thisBand.name}</h2>

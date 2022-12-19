@@ -5,9 +5,10 @@ import Home from "./components/Home";
 import NoPage from "./components/NoPage";
 import BandDetails from "./components/BandDetails";
 import * as React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+
 const url = "https://tonal-fest.fly.dev/";
 
 function App() {
@@ -126,6 +127,7 @@ function App() {
         <Route path="/footer" element={<Footer />} />
         <Route path="*" element={<NoPage />} />
         <Route path="/acts/:id/*" element={<BandDetails bands={bands} slots={slotsByName} toggleFav={toggleFav} />} />
+        <Route path="/redirect" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
     </div>
