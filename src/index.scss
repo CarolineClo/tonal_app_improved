@@ -98,7 +98,7 @@ button.activeButton {
   padding: 0 0.8rem;
   background-color: $black-colour;
   color: $white-colour;
-  padding-bottom: 13rem;
+  padding-bottom: 10rem;
 
   .homeHeading {
     margin-bottom: 3rem;
@@ -193,14 +193,16 @@ button.activeButton {
 }
 
 .topNav {
+  padding: 0 0.8rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.56rem;
+  margin-bottom: 1.25rem;
 
   .dayNav {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.3rem;
+    gap: 1rem;
 
     .dayButton {
       button {
@@ -218,7 +220,7 @@ button.activeButton {
       border: 1px solid $white-colour;
       position: relative;
       border-radius: 5px;
-      margin: 0.2rem 0;
+      margin: 0.8rem 0;
       font-family: $font-body;
       text-transform: uppercase;
       width: 100%;
@@ -265,6 +267,7 @@ button.activeButton {
       justify-self: center;
 
       label {
+        padding: 0.56rem 0;
         display: flex;
         flex-direction: column;
         font-family: $font-body;
@@ -276,15 +279,70 @@ button.activeButton {
 }
 
 .scheduleList {
-  padding: 0 0.8rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.95rem;
+  .listOfSlots {
+    padding: 0.8rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.scheduleListCard {
+  display: grid;
+  grid-template-columns: 30% 1fr 15%;
+  gap: 0.63rem;
+  margin-bottom: 1.56rem;
+  // background-color: rgb(188, 226, 6, 10%);
+  .time {
+    position: relative;
+    color: $green-colour;
+    grid-column: 1 / -1;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    padding-left: 50px;
+  }
+  .time:before {
+    content: "";
+    display: block;
+    width: 45px;
+    border-bottom: 2px solid $green-colour;
+    position: absolute;
+    left: 0;
+    top: 0.64rem;
+  }
+  .imageCircle {
+    overflow: hidden;
+    width: 90%;
+    aspect-ratio: 1 /1;
+    border: $green-colour 1px solid;
+    position: relative;
+    border-radius: 80%;
+    margin: auto;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    clip-path: circle(50%);
+    object-fit: cover;
+    position: absolute;
+  }
+  .bandInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.64rem;
+    .name {
+      font-weight: 500;
+    }
+  }
 }
 
 .actList {
-  margin-bottom: 13rem;
+  margin-bottom: 10rem;
   a {
     color: $white-colour;
   }
@@ -328,7 +386,6 @@ button.activeButton {
     border: $green-colour 1px solid;
     position: relative;
     border-radius: 80%;
-
     margin: 0 auto;
     img {
       width: 100%;
@@ -371,6 +428,7 @@ button.activeButton {
       position: absolute;
     }
   }
+
   .bandInfo {
     display: flex;
     flex-direction: column;
@@ -379,13 +437,17 @@ button.activeButton {
     .name {
       padding: 0.8rem 0;
     }
-    .bandSlot {
+    .bandSlotWrapper {
       display: flex;
-      flex-direction: column;
-      gap: 0.41rem;
-      color: $green-colour;
-      .day {
-        text-transform: uppercase;
+      justify-content: space-between;
+      .bandSlot {
+        display: flex;
+        flex-direction: column;
+        gap: 0.41rem;
+        color: $green-colour;
+        .day {
+          text-transform: uppercase;
+        }
       }
     }
   }
@@ -430,6 +492,15 @@ button.activeButton {
       margin: auto;
     }
   }
+  .scheduleList {
+    margin: 0 auto 10rem;
+
+    .listOfSlots {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.44rem;
+    }
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -444,6 +515,18 @@ button.activeButton {
       grid-template-columns: repeat(3, 1fr);
     }
   }
+  .scheduleList {
+    .listOfSlots {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.95rem 3.81rem;
+    }
+  }
+
+  .topNav {
+    .dayNav {
+      gap: 1.25rem 2.44rem;
+    }
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -454,10 +537,10 @@ button.activeButton {
     }
   }
   .home {
-    margin: 0 auto;
+    margin: 0 auto 10rem;
     max-width: 1400px;
     .boxLinks {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
     }
     .homeHeading {
@@ -465,11 +548,11 @@ button.activeButton {
     }
   }
   .actList {
-    margin: 0 auto;
+    margin: 0 auto 10rem;
     max-width: 1400px;
     .listOfActs {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -480,5 +563,9 @@ button.activeButton {
     .imageCircle {
       width: 60%;
     }
+  }
+  .scheduleList {
+    margin: 0 auto 10rem;
+    max-width: 1400px;
   }
 }

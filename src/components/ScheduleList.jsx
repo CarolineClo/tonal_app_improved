@@ -44,17 +44,16 @@ function ScheduleList(props) {
   return (
     <div className="scheduleList">
       <ScheduleFilters locations={props.locations} selectDay={selectDay} selectTent={selectTent} setDay={day} toggleFavsList={toggleFavsList} hidden={hidden} hideLocation={hideLocation} />
+      <div className="listOfSlots">
+        {filtered.map((slot, i) => {
+          // console.log(slot.act, bands[slot.act]);
+          const band = bands[slot.act];
 
-      {filtered.map((slot, i) => {
-        // console.log(slot.act, bands[slot.act]);
-        const band = bands[slot.act];
-
-        return <ScheduleListCard key={i} slot={slot} sched={sched} toggleFav={props.toggleFav} band={band} />;
-      })}
+          return <ScheduleListCard key={i} slot={slot} sched={sched} toggleFav={props.toggleFav} band={band} />;
+        })}
+      </div>
     </div>
   );
 }
 
 export default ScheduleList;
-
-
