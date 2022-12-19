@@ -126,7 +126,7 @@ function App() {
         <Route path="/schedule" element={<ScheduleList dayArr={dayArr} toggleFav={toggleFav} locations={locations} bands={bandsByName} />} />
         <Route path="/footer" element={<Footer />} />
         <Route path="*" element={<NoPage />} />
-        <Route path="/acts/:id/*" element={<BandDetails bands={bands} slots={slotsByName} toggleFav={toggleFav} />} />
+        <Route path="/acts/:id/" element={<BandDetails bands={bands} slots={slotsByName} toggleFav={toggleFav} />} />
         <Route path="/redirect" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
