@@ -1,6 +1,7 @@
 import React from "react";
 import ActListCard from "./ActListCard";
 import { Link } from "react-router-dom";
+let i = 1;
 
 function ActList(props) {
   const slotsByName = props.slots;
@@ -15,6 +16,14 @@ function ActList(props) {
     return 0;
   });
 
+  if (bands === undefined) {
+    return <div>...</div>;
+  }
+
+  if (slotsByName === undefined) {
+    return <div>...</div>;
+  }
+
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
   return (
@@ -23,12 +32,12 @@ function ActList(props) {
 
       {alphabet.map((letter) => {
         return (
-          <div className="listOfActs">
+          <div className="listOfActs" key={i++}>
             <h3 className="letter">{letter}</h3>
             {bands.map((band) => {
               if (band.name.charAt(0) === letter)
                 return (
-                  <div>
+                  <div key={i++}>
                     <Link to={`/acts/${band.id}`} key={band.id}>
                       <ActListCard data={band} slot={slotsByName[band.name]} key={band.id} />
                     </Link>

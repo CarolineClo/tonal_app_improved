@@ -466,7 +466,7 @@ button.activeButton {
   }
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 580px) {
   .home {
     .boxLinks {
       flex-direction: row;
@@ -559,7 +559,7 @@ button.activeButton {
   }
 
   .bandDetails {
-    margin: 0 auto;
+    margin: 0 auto 10rem;
     max-width: 1200px;
 
     .imageCircle {

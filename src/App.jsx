@@ -77,6 +77,8 @@ function App() {
     copy[index].fav = !copy[index].fav;
     setDayArr(copy);
   }
+  console.log(bandsByName);
+  console.log(slotsByName);
 
   return (
     <div className="app">
