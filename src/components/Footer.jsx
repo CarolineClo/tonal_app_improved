@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Footer() {
   const classNameFunc = ({ isActive }) => (isActive ? "active_link" : "not_active_link");
@@ -16,7 +16,6 @@ function Footer() {
         <NavLink className={classNameFunc} to="schedule">
           Schedule
         </NavLink>
-        {/* <MyButton changeList={props.changeList} name={"Schedule"} button={"schedule"}></MyButton> */}
       </div>
     </div>
   );

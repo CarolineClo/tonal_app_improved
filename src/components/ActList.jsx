@@ -3,7 +3,7 @@ import ActListCard from "./ActListCard";
 import { Link } from "react-router-dom";
 
 function ActList(props) {
-  const slots = props.slots;
+  const slotsByName = props.slots;
   let bands = props.bands;
   bands.sort((a, b) => {
     if (a.name > b.name) {
@@ -30,7 +30,7 @@ function ActList(props) {
                 return (
                   <div>
                     <Link to={`/acts/${band.id}`} key={band.id}>
-                      <ActListCard data={band} slot={slots[band.name]} key={band.id} />
+                      <ActListCard data={band} slot={slotsByName[band.name]} key={band.id} />
                     </Link>
                   </div>
                 );

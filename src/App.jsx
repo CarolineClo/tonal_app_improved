@@ -1,8 +1,8 @@
 import Footer from "./components/Footer";
+import NoPage from "./components/NoPage";
 import ActList from "./components/ActList";
 import ScheduleList from "./components/ScheduleList";
 import Home from "./components/Home";
-import NoPage from "./components/NoPage";
 import BandDetails from "./components/BandDetails";
 import * as React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -21,12 +21,11 @@ function App() {
 
   useEffect(() => {
     async function getBandData() {
-      // const res = await fetch(configData.SERVER_URL + "bands");
       const res = await fetch(url + "bands");
       const bandData = await res.json();
       setbands(bandData);
       let i = 1;
-      const bandAndID = bandData.map((band) => {
+      bandData.map((band) => {
         Object.assign(band, { id: i++ });
       });
       const entries = bandData.map((band) => {
@@ -77,7 +76,6 @@ function App() {
     const copy = [...dayArr];
     copy[index].fav = !copy[index].fav;
     setDayArr(copy);
-    console.log(index);
   }
 
   return (
@@ -120,13 +118,11 @@ function App() {
         </div>
       </div>
       <Routes>
-        {/* <Route path="/" element={<Layout />} /> */}
         <Route path="/" element={<Home classNameFunc={classNameFunc} />} />
         <Route path="/acts" element={<ActList bands={bands} slots={slotsByName} />} />
         <Route path="/schedule" element={<ScheduleList dayArr={dayArr} toggleFav={toggleFav} locations={locations} bands={bandsByName} />} />
-        <Route path="/footer" element={<Footer />} />
-        <Route path="*" element={<NoPage />} />
         <Route path="/acts/:id/" element={<BandDetails bands={bands} slots={slotsByName} toggleFav={toggleFav} />} />
+        <Route path="*" element={<NoPage />} />
         <Route path="/redirect" element={<Navigate to="/" />} />
       </Routes>
       <Footer />

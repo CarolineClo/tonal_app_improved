@@ -14,11 +14,4 @@ function MyButton(props) {
 
 export default MyButton;
 {
-  /* <button
-onClick={() => {
-  props.changeList();
-}}
->
-{props.name}
-</button> */
 }
