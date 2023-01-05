@@ -11,13 +11,13 @@ function ScheduleList(props) {
   const [tent, setTent] = useState("");
   const [isFavList, setIsFavList] = useState(false);
   const [hidden, setHidden] = useState(false);
-
+  let contentsOfChosenScheduleList;
   let filtered = [];
 
   function filterList() {
     if (isFavList == true) {
       filtered = sched.filter((slot) => slot.fav == true);
-    } else if (tent) {
+    } else if (tent !== "all") {
       filtered = sched.filter((slot) => slot.stage === tent);
     } else {
       filtered = sched;
@@ -42,15 +42,30 @@ function ScheduleList(props) {
     setHidden(!checked);
   }
 
-  return (
-    <div className="scheduleList">
-      <ScheduleFilters locations={props.locations} selectDay={selectDay} selectTent={selectTent} setDay={day} toggleFavsList={toggleFavsList} hidden={hidden} hideLocation={hideLocation} />
+  if (filtered.length < 1) {
+    contentsOfChosenScheduleList = (
+      <div className="emptyList">
+        <p>You have not yet added any bands to your schedule on this day!</p>
+      </div>
+    );
+  } else {
+    contentsOfChosenScheduleList = (
       <div className="listOfSlots">
         {filtered.map((slot, i) => {
           const band = bands[slot.act];
+
           return <ScheduleListCard key={i} slot={slot} sched={sched} toggleFav={props.toggleFav} band={band} />;
         })}
       </div>
+    );
+  }
+
+  return (
+    <div className="scheduleList">
+      <h1>Schedule</h1>
+      <ScheduleFilters locations={props.locations} selectDay={selectDay} selectTent={selectTent} setDay={day} toggleFavsList={toggleFavsList} hidden={hidden} hideLocation={hideLocation} />
+
+      {contentsOfChosenScheduleList}
     </div>
   );
 }

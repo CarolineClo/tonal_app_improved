@@ -9,7 +9,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const url = "https://tonal-fest.fly.dev/";
+const url = "http://localhost:8080/";
 
 function App() {
   const [bands, setbands] = useState([]);
@@ -38,17 +38,23 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const tempArr = [];
     async function getSchedData() {
-      // const res = await fetch(configData.SERVER_URL + "bands");
       const res = await fetch(url + "schedule");
-
       const schedData = await res.json();
 
-      setLocations(Object.keys(schedData));
+      // setLocations(Object.keys(schedData));
+      getLocations(schedData);
       getDayArr(schedData);
     }
     getSchedData();
-
+    function getLocations(schedData) {
+      const tempArr = ["all"];
+      Object.keys(schedData).map((tent) => {
+        tempArr.push(tent);
+      });
+      setLocations(tempArr);
+    }
     function getDayArr(schedData) {
       const nextArr = [];
       let i = 0;
@@ -77,8 +83,6 @@ function App() {
     copy[index].fav = !copy[index].fav;
     setDayArr(copy);
   }
-  console.log(bandsByName);
-  console.log(slotsByName);
 
   return (
     <div className="app">

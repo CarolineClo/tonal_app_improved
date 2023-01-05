@@ -1,7 +1,7 @@
 import React from "react";
 
 function ActListCard(props) {
-  const url = "https://tonal-fest.fly.dev/";
+  const url = "http://localhost:8080/";
   let bandLogo;
 
   if (props.data.logo.includes("https")) {

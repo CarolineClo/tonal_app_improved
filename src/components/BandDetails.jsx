@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Notfav from "./Notfav";
 import Favheart from "./Favheart";
-const url = "https://tonal-fest.fly.dev/";
+const url = "http://localhost:8080/";
 
 function BandDetails(props) {
   const { id } = useParams();

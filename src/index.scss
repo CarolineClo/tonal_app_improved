@@ -258,6 +258,7 @@ button.activeButton {
         overflow: auto;
         max-height: 150px;
         background-color: $black-colour;
+        z-index: 2;
       }
 
       .locationItem {
@@ -303,6 +304,17 @@ button.activeButton {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+  }
+  .emptyList {
+    padding: 0.8rem;
+  }
+  h1 {
+    text-transform: uppercase;
+    border-bottom: #f9faf7 solid 1px;
+    line-height: 5.96rem;
+    margin-top: 0;
+    margin-bottom: 1.95rem;
+    padding: 0 0.8rem;
   }
 }
 

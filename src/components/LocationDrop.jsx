@@ -15,7 +15,6 @@ function LocationDrop(props) {
   const [selectedValue, setSelectedValue] = useState(null);
 
   useEffect(() => {
-    //setSelectedValue(options[0]);
     selectLocation(options[0]);
   }, [options]);
 
@@ -45,7 +44,6 @@ function LocationDrop(props) {
 
     return selectedValue === option;
   }
-  //console.log(selectedValue);
 
   return (
     <div className={props.hidden ? "locationDrop.hide" : "locationDrop"}>
