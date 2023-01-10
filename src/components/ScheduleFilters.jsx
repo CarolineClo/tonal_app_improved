@@ -7,9 +7,6 @@ function ScheduleFilters(props) {
   const selectDay = props.selectDay;
   const selectTent = props.selectTent;
   const options = props.locations;
-  //Object.keys(props.sched).map((key) => {
-  //   return { value: key, label: key };
-  // });
 
   return (
     <div className="topNav">
