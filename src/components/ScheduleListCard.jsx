@@ -19,6 +19,9 @@ function ScheduleListCard(props) {
 
   return (
     <div className="scheduleListCard">
+      <div className={`cancelled_cover${props.slot.cancelled ? "" : "hide"}`}>
+        <h2>cancelled</h2>
+      </div>
       <h4 className="time">
         {props.slot.start} - {props.slot.end}
       </h4>
