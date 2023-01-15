@@ -19,7 +19,6 @@ function ScheduleListCard(props) {
 
   return (
     <div className="scheduleListCard">
-      {/* <div className="cancelled_cover.hide"> */}
       <div className={`cancelled_cover${props.slot.cancelled ? "" : "hide"}`}>
         <h3>cancelled</h3>
       </div>
