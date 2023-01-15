@@ -1,9 +1,9 @@
 import Footer from "./components/Footer";
-import NoPage from "./components/NoPage";
-import ActList from "./components/ActList";
-import ScheduleList from "./components/ScheduleList";
-import Home from "./components/Home";
-import BandDetails from "./components/BandDetails";
+import NoPage from "./routes/NoPage";
+import ActList from "./routes/ActList";
+import ScheduleList from "./routes/ScheduleList";
+import Home from "./routes/Home";
+import BandDetails from "./routes/BandDetails";
 import * as React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";

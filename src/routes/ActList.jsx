@@ -1,7 +1,7 @@
 import React from "react";
-import ActListCard from "./ActListCard";
+import ActListCard from "../components/ActListCard";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import SearchBar from "../components/SearchBar";
 import { useState } from "react";
 let i = 1;
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");

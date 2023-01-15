@@ -1,6 +1,6 @@
 import React from "react";
-import ScheduleListCard from "./ScheduleListCard";
-import ScheduleFilters from "./ScheduleFilters";
+import ScheduleListCard from "../components/ScheduleListCard";
+import ScheduleFilters from "../components/ScheduleFilters";
 import { useState } from "react";
 
 function ScheduleList(props) {

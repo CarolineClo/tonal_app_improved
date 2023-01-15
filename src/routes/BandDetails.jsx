@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Notfav from "./Notfav";
-import Favheart from "./Favheart";
+import Notfav from "../components/Notfav";
+import Favheart from "../components/Favheart";
 const url = "http://localhost:8080/";
 
 function BandDetails(props) {
