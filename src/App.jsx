@@ -14,10 +14,19 @@ const url = "http://localhost:8080/";
 function App() {
   const [bands, setbands] = useState([]);
   const [locations, setLocations] = useState([]);
-  const [dayArr, setDayArr] = useState([]);
+  const [schedule, setSchedule] = useState([]);
   const [bandsByName, setBandsByName] = useState({});
   const [slotsByName, setSlotsByName] = useState({});
+  const [favourites, setFavourites] = useState([]);
   const classNameFunc = ({ isActive }) => (isActive ? "active_link" : "not_active_link ");
+
+  useEffect(() => {
+    const newFavourites = JSON.parse(localStorage.getItem("favourites"));
+    if (newFavourites !== null) {
+      console.log(newFavourites);
+      setFavourites(newFavourites);
+    }
+  }, []);
 
   useEffect(() => {
     async function getBandData() {
@@ -42,10 +51,8 @@ function App() {
     async function getSchedData() {
       const res = await fetch(url + "schedule");
       const schedData = await res.json();
-
-      // setLocations(Object.keys(schedData));
       getLocations(schedData);
-      getDayArr(schedData);
+      flattenSchedule(schedData);
     }
     getSchedData();
     function getLocations(schedData) {
@@ -55,33 +62,37 @@ function App() {
       });
       setLocations(tempArr);
     }
-    function getDayArr(schedData) {
-      const nextArr = [];
+    function flattenSchedule(schedData) {
+      const newSchedule = [];
       let i = 0;
       Object.entries(schedData).map((item) => {
         Object.entries(item[1]).map((weekDays) => {
           weekDays[1].forEach((el) => {
             el.stage = item[0];
-            el.fav = false;
             el.day = weekDays[0];
-            el.index = i;
             i++;
-            nextArr.push(el);
+            newSchedule.push(el);
           });
         });
       });
-      setDayArr(nextArr);
-      const entries = nextArr.map((slot) => {
+      setSchedule(newSchedule);
+      const entries = newSchedule.map((slot) => {
         return [slot.act, slot];
       });
       setSlotsByName(Object.fromEntries(entries));
     }
   }, []);
 
-  function toggleFav(index) {
-    const copy = [...dayArr];
-    copy[index].fav = !copy[index].fav;
-    setDayArr(copy);
+  function toggleFav(name) {
+    const newFavourites = [...favourites];
+    const index = favourites.indexOf(name);
+    if (index === -1) {
+      newFavourites.push(name);
+    } else {
+      newFavourites.splice(index, 1);
+    }
+    setFavourites(newFavourites);
+    localStorage.setItem("favourites", JSON.stringify(newFavourites));
   }
 
   return (
@@ -126,7 +137,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home classNameFunc={classNameFunc} />} />
         <Route path="/acts" element={<ActList bands={bands} slots={slotsByName} />} />
-        <Route path="/schedule" element={<ScheduleList dayArr={dayArr} toggleFav={toggleFav} locations={locations} bands={bandsByName} />} />
+        <Route path="/schedule" element={<ScheduleList schedule={schedule} toggleFav={toggleFav} locations={locations} bands={bandsByName} favourites={favourites} />} />
         <Route path="/acts/:id/" element={<BandDetails bands={bands} slots={slotsByName} toggleFav={toggleFav} />} />
         <Route path="*" element={<NoPage />} />
         <Route path="/redirect" element={<Navigate to="/" />} />

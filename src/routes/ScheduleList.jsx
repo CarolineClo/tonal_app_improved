@@ -4,8 +4,9 @@ import ScheduleFilters from "../components/ScheduleFilters";
 import { useState } from "react";
 
 function ScheduleList(props) {
-  const sched = props.dayArr;
+  const schedule = props.schedule;
   const bands = props.bands;
+  const favourites = props.favourites;
   //all states
   const [day, setDay] = useState("mon");
   const [tent, setTent] = useState("");
@@ -16,11 +17,11 @@ function ScheduleList(props) {
 
   function filterList() {
     if (isFavList == true) {
-      filtered = sched.filter((slot) => slot.fav == true);
+      filtered = schedule.filter((slot) => favourites.includes(slot.act));
     } else if (tent !== "all") {
-      filtered = sched.filter((slot) => slot.stage === tent);
+      filtered = schedule.filter((slot) => slot.stage === tent);
     } else {
-      filtered = sched;
+      filtered = schedule;
     }
     filtered = filtered.filter((slot) => slot.day === day);
   }
@@ -54,7 +55,7 @@ function ScheduleList(props) {
         {filtered.map((slot, i) => {
           const band = bands[slot.act];
 
-          return <ScheduleListCard key={i} slot={slot} sched={sched} toggleFav={props.toggleFav} band={band} />;
+          return <ScheduleListCard key={i} slot={slot} toggleFav={props.toggleFav} band={band} favourites={favourites} />;
         })}
       </div>
     );

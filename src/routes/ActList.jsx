@@ -14,6 +14,7 @@ function ActList(props) {
   const slotsByName = props.slots;
   let bands = props.bands;
   let searchFilteredBands = bands.filter((band) => band.name.toLowerCase().includes(searchInput));
+  let initialBandLetters = searchFilteredBands.map((band) => band.name.toUpperCase().charAt(0));
   bands.sort((a, b) => {
     if (a.name > b.name) {
       return 1;
@@ -35,8 +36,9 @@ function ActList(props) {
       <div className="actList">
         <h1> Acts</h1>
         <SearchBar selectSearchInput={selectSearchInput} />
-        {alphabet.map((letter) => {
-          return (
+        {alphabet
+          .filter((letter) => initialBandLetters.includes(letter))
+          .map((letter) => (
             <div className="listOfActs" key={i++}>
               <h3 className="letter">{letter}</h3>
               {searchFilteredBands.map((band) => {
@@ -50,8 +52,7 @@ function ActList(props) {
                   );
               })}
             </div>
-          );
-        })}
+          ))}
       </div>
     );
 }

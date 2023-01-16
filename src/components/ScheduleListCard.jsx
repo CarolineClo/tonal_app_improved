@@ -4,9 +4,9 @@ import Notfav from "./Notfav";
 const url = "http://localhost:8080/";
 
 function ScheduleListCard(props) {
-  let component = <Notfav toggleFav={props.toggleFav} index={props.slot.index} />;
-  if (props.slot.fav == true) {
-    component = <Favheart toggleFav={props.toggleFav} index={props.slot.index} />;
+  let component = <Notfav toggleFav={props.toggleFav} name={props.slot.act} />;
+  if (props.favourites.includes(props.slot.act)) {
+    component = <Favheart toggleFav={props.toggleFav} name={props.slot.act} />;
   }
 
   let bandImage = props.band && props.band.logo;
