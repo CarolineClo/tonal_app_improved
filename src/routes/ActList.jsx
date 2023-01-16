@@ -46,7 +46,7 @@ function ActList(props) {
                   return (
                     <div key={i++}>
                       <Link to={`/acts/${band.id}`} key={band.id}>
-                        <ActListCard data={band} slot={slotsByName[band.name]} key={band.id} />
+                        <ActListCard data={band} slot={slotsByName[band.name]} key={band.id} favourites={props.favourites} />
                       </Link>
                     </div>
                   );

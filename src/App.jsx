@@ -138,7 +138,7 @@ function App() {
         <Route path="/" element={<Home classNameFunc={classNameFunc} />} />
         <Route path="/acts" element={<ActList bands={bands} slots={slotsByName} />} />
         <Route path="/schedule" element={<ScheduleList schedule={schedule} toggleFav={toggleFav} locations={locations} bands={bandsByName} favourites={favourites} />} />
-        <Route path="/acts/:id/" element={<BandDetails bands={bands} slots={slotsByName} toggleFav={toggleFav} />} />
+        <Route path="/acts/:id/" element={<BandDetails bands={bands} slots={slotsByName} toggleFav={toggleFav} favourites={favourites} />} />
         <Route path="*" element={<NoPage />} />
         <Route path="/redirect" element={<Navigate to="/" />} />
       </Routes>

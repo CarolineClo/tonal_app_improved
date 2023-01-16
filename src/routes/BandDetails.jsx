@@ -34,9 +34,9 @@ function BandDetails(props) {
     bandLogo = url + "logos/" + bandImage;
   }
 
-  let component = <Notfav toggleFav={props.toggleFav} index={slot.index} />;
-  if (slot.fav == true) {
-    component = <Favheart toggleFav={props.toggleFav} index={slot.index} />;
+  let component = <Notfav toggleFav={props.toggleFav} name={slot.act} />;
+  if (props.favourites.includes(slot.act)) {
+    component = <Favheart toggleFav={props.toggleFav} name={slot.act} />;
   }
 
   return (
