@@ -61,6 +61,9 @@ h4 {
 a {
   text-decoration: none;
 }
+a:hover {
+  transform: scale(1.08);
+}
 p {
   line-height: 1.25rem;
 }
@@ -383,6 +386,10 @@ button.activeButton {
   }
 }
 
+.cancelled_cover:hover {
+  background-color: rgb(188, 226, 6, 75%);
+}
+
 .actList {
   margin-bottom: 10rem;
   a {
@@ -486,6 +493,10 @@ button.activeButton {
     text-transform: uppercase;
     font-weight: 800;
   }
+}
+
+.actListCard:hover {
+  background-color: rgb(188, 226, 6, 20%);
 }
 
 .hide {
