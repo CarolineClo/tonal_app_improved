@@ -12,6 +12,9 @@ function ActListCard(props) {
 
   return (
     <div className="actListCard">
+      <div className={`cancelled_cover${props.slot.cancelled ? "" : " hide"}`}>
+        <h3>cancelled</h3>
+      </div>
       <div className="ActInfo">
         <h3 className="bandName">{props.data.name}</h3>
         <p className="day">{props.slot.day}</p>

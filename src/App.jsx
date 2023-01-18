@@ -18,8 +18,10 @@ function App() {
   const [bandsByName, setBandsByName] = useState({});
   const [slotsByName, setSlotsByName] = useState({});
   const [favourites, setFavourites] = useState([]);
+  //function for navigation feedback
   const classNameFunc = ({ isActive }) => (isActive ? "active_link" : "not_active_link ");
 
+  //get saved to local storage "My schedule " on refresh
   useEffect(() => {
     const newFavourites = JSON.parse(localStorage.getItem("favourites"));
     if (newFavourites !== null) {
@@ -28,6 +30,7 @@ function App() {
     }
   }, []);
 
+  //Get "band" data and create bandsByName array
   useEffect(() => {
     async function getBandData() {
       const res = await fetch(url + "bands");
@@ -46,6 +49,7 @@ function App() {
     getBandData();
   }, []);
 
+  //Get "schedule" data, setLocations, flatten the data to a simpler array and set soltsByName
   useEffect(() => {
     const tempArr = [];
     async function getSchedData() {
@@ -83,6 +87,7 @@ function App() {
     }
   }, []);
 
+  //create a new array of "My schedule" bands, and push favourite bands into it
   function toggleFav(name) {
     const newFavourites = [...favourites];
     const index = favourites.indexOf(name);
