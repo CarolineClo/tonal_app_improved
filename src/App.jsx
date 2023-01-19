@@ -60,7 +60,7 @@ function App() {
     }
     getSchedData();
     function getLocations(schedData) {
-      const tempArr = ["all"];
+      const tempArr = ["all tents"];
       Object.keys(schedData).map((tent) => {
         tempArr.push(tent);
       });

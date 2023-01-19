@@ -18,7 +18,7 @@ function ScheduleList(props) {
   function filterList() {
     if (isFavList == true) {
       filtered = schedule.filter((slot) => favourites.includes(slot.act));
-    } else if (tent !== "all") {
+    } else if (tent !== "all tents") {
       filtered = schedule.filter((slot) => slot.stage === tent);
     } else {
       filtered = schedule;
